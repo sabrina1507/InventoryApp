@@ -31,6 +31,8 @@ import kotlinx.coroutines.launch
  */
 class InventoryViewModel(private val itemDao: ItemDao) : ViewModel() {
 
+    val allItems: LiveData<List<Item>> = itemDao.getItems().asLiveData()
+
     fun updateItem(
         itemId: Int,
         itemName: String,
